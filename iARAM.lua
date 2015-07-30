@@ -47,6 +47,7 @@ local HotKey = 115 --F4 = 115, F6 = 117 default
 local AutomaticChat = true --If is in true mode, then it will say "gl and hf" when the game starts.
 local AUTOUPDATE = true --change to false to disable auto update
 local SummonerName = myHero.charName
+local FAGGOT = true
 
 --[[ GLOBALS [Do Not Change] ]]--
 
@@ -92,7 +93,7 @@ local wardSlot = nil
 local version = 4.8
 local UPDATE_CHANGE_LOG = "Update for 5.14 Minipatchs 2"
 local UPDATE_HOST = "raw.githubusercontent.com"
-local UPDATE_PATH = "/Husmeador12/Bol_Script/master/iARAM.lua".."?rand="..math.random(1,10000)
+local UPDATE_PATH = "/Dresmor/iARAM/blob/master/iARAM.lua".."?rand="..math.random(1,10000)
 local UPDATE_FILE_PATH = SCRIPT_PATH..GetCurrentEnv().FILE_NAME
 local UPDATE_URL = "https://"..UPDATE_HOST..UPDATE_PATH
 
@@ -100,7 +101,7 @@ local UPDATE_URL = "https://"..UPDATE_HOST..UPDATE_PATH
 -----[[ Auto Update Function ]]------
 function _AutoupdaterMsg(msg) print("<font color=\"#9bbcfe\"><b>i<font color=\"#6699ff\">ARAM:</b></font> <font color=\"#FFFFFF\">"..msg..".</font>") end
 if AUTOUPDATE then
-	local ServerData = GetWebResult(UPDATE_HOST, "/Husmeador12/Bol_Script/master/version/iARAM.version")
+	local ServerData = GetWebResult(UPDATE_HOST, "/Dresmor/iARAM/blob/master/version/iARAM.version")
 	if ServerData then
 		ServerVersion = type(tonumber(ServerData)) == "number" and tonumber(ServerData) or nil
 		if ServerVersion then
@@ -1253,7 +1254,7 @@ end
 --[[ AutoLevel Function ]]--
 AddLoadCallback(function()
 
-if not VIP_USER then return end
+if not FAGGOT then return end
 	local champ = player.charName
     if champ == "Aatrox" then           AutoLevel({ 1, 2, 3, 2, 2, 4, 2, 3, 2, 3, 4, 3, 3, 1, 1, 4, 1, 1, })
     elseif champ == "Ahri" then         AutoLevel({ 1, 3, 1, 2, 1, 4, 1, 2, 1, 2, 4, 2, 2, 3, 3, 4, 2, 2, })
@@ -1394,7 +1395,7 @@ end)
 
 class 'AutoLevel'
 function AutoLevel:__init(table)
-	if VIP_USER then
+	if FAGGOT then
 		self.clock = os.clock()
 		self.LastLeveled = GetHeroLeveled()
 		self.LevelSequence = table
